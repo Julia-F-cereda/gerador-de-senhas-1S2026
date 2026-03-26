@@ -1,0 +1,21 @@
+
+.app-pwd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+};
+.app-pwd__opitions{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+};
+.app-pwd__header{
+background-color: pink;
+width: 30px;
+};
+
+.app-pwd__button-container{
+display: flex;
+background-color: pink;
+
+};
