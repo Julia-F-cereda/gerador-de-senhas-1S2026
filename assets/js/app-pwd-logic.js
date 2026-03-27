@@ -61,8 +61,75 @@ const atualizarHeader = () => {
     data.textContent = dataHora();
 };
 
+const gerarSenha = () =>{
+    let selecionarCaracteres = ''; //string que vai pegar todos os caracteres
+
+    //obtendo os checkbox selecionados
+    const maiusculasChecked = document.querySelector('.uppercase-check').checked;
+    const minusculasChecked = document.querySelector('.lowercase-check').checked;
+    const numbersChecked = document.querySelector('.number-check').checked;
+    const especiaisChecked = document.querySelector('.special-check').checked;
+
+    //construir os caracteres baseado na op selecionada
+    if (maiusculasChecked) selecionarCaracteres += charsets.uppercase;
+    if (minusculasChecked) selecionarCaracteres += charsets.lowercase;
+    if (numbersChecked) selecionarCaracteres += charsets.numbers;
+    if (especiaisChecked) selecionarCaracteres += charsets.special;
+
+    //se nenhuma opção estiver selecionada pega todAS
+    if (!selecionarCaracteres) {
+        selecionarCaracteres = Object.values(charsets).join('');
+        console.log(selecionarCaracteres);
+        document.querySelector('.uppercase-check').checked = true;
+        document.querySelector('.lowercase-check').checked = true;
+        document.querySelector('.numbers-check').checked = true;
+        document.querySelector('.special-check').checked = true;
+
+    }
+
+    //inicia uma string vazia para armazenar a senha
+    let pass= '';
+
+        /* Loop que itera pelo número de caracteres definido no slider
+    Usa o operador de incremento (++) para aumentar o contador */
+    for(let i = 0; i < slider.value; ++i){
+  
+    /* Adiciona um caractere aleatório à senha:
+    1. Math.random() gera um número decimal entre 0 e 1
+    2. Multiplicado pelo comprimento do charset para obter um índice válido
+    3. Math.floor() arredonda para baixo para obter um índice inteiro
+    4. charAt() retorna o caractere na posição do índice calculado */
+    
+    pass +=  selecionarCaracteres.charAt(Math.floor(Math.random() * selecionarCaracteres.length));
+
+    //remove o hide para exibir no container da senha
+    senha.classList.remove('hide');
+
+    senha.textContent = pass;
+
+    contSenhaGerada = pass;
+
+    historicoSenha.unshift(pass);
+
+    if(historicoSenha.length > 3) {
+        historicoSenha.pop();
+    }
+
+    const historico = document.querySelector('.app-pwd__history');
+    if(historico) {
+
+        historico.computedStyleMap.display = 'block';
+
+        historico.querySelector('.app-pwd__history-list').innerHTML = historicoSenha
+        .map(senhaa => `<li class="app=pwd-item">${senhaa}</li>`)
+        .join('');
+       0 
+    }
+
+
+};
 // function exibirData(){
 //     data = new Date().getFullYear();
 
 //     if 
-// };
+// }
