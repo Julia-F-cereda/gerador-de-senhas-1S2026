@@ -56,6 +56,11 @@ const dataHora = () =>{
 
 };
 
+const atualizarHeader = () => {
+    bemVindo.textContent = `${saudacao()}!`;
+    data.textContent = dataHora();
+};
+
 // function exibirData(){
 //     data = new Date().getFullYear();
 

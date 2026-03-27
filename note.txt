@@ -145,7 +145,7 @@ Utiliza vários métodos do objeto Date para obter os componentes da data */
   /* Reseta os checkboxes para o estado inicial (marcados) */
 
 
-  /* Reseta o slider para o valor inicial */
+  // Reseta o slider para o valor inicial
   
 
-/* Adiciona o event listener para o botão de limpar */
+//Adiciona o event listener para o botão de limpar 
